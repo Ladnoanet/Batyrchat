@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BatyrChat</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            background: url('123.jpg') center/cover no-repeat;
+            height: 97vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="reg">
+        <h3>Добро Пожаловать</h3>  
+        <p>Хотите начать общаться?</p>
+        <input id="name" placeholder="Ваше имя" type="text"><br>
+        <input placeholder="Пароль" type="password"><br>
+        <button onclick="reg()">Войти</button>
+    </div>
+    
+
+    <script>
+        // Initialize statusHistory if it doesn't exist in localStorage
+        let statusHistory = JSON.parse(localStorage.getItem('statusHistory')) || [];
+
+        function reg() {
+            const polz = document.getElementById('name').value;
+
+            if (!polz) {
+                alert('Все поля должны быть заполнены!');
+                return;
+            }
+
+            // Add the name to the history
+            statusHistory.push(polz);
+
+            // Save updated statusHistory to localStorage
+            localStorage.setItem('statusHistory', JSON.stringify(statusHistory));
+
+            // Create a user data object and store it in localStorage
+            const data = { name: polz };
+            localStorage.setItem('userData', JSON.stringify(data));
+
+            // Redirect to chats page
+            location.href = 'chats.html';
+        }
+    </script>
+</body>
+</html>

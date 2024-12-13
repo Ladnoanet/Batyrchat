@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BatyrChat</title>
+    <link rel="stylesheet" href="chats.css">
+    <style>
+        body {
+            background: url('123.jpg') center/cover no-repeat;
+            height: 97vh;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="chats.html"><</a><h2>Персонализация</h2>
+    </header>
+    <h2>Ваш профиль</h2>
+    <h2>Вы: <span id="userName"></span></h2>
+    <a href="error.html">
+    <div class="Чат">
+        Настройки
+    </div>
+    <div class="Чат">
+        Конфидициальность
+    </div>
+    <div class="Чат">
+        Стиль
+    </div>
+    <div class="Чат">
+        Чаты
+    </div></a>
+    <a href="index.html">
+    <div style="color: brown;" class="Чат">
+        Удалить аккаунт
+    </div></a>
+    
+    <script>
+        // Get the user's name from localStorage
+        const userData = JSON.parse(localStorage.getItem('userData'));
+
+        // Check if userData exists and set the name
+        if (userData && userData.name) {
+            document.getElementById('userName').textContent = userData.name;
+        } else {
+            document.getElementById('userName').textContent = "Неизвестный пользователь";
+        }
+    </script>
+</body>
+</html>
